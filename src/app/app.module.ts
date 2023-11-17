@@ -10,16 +10,31 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { CommonFormComponent } from './components/common-form/common-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountryService } from './service/country.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, ContactComponent, NavbarComponent, ErrorPageComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    NavbarComponent,
+    ErrorPageComponent,
+    CommonFormComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     PrimeModule,
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
