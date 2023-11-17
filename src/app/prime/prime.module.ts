@@ -13,9 +13,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
-
+import { KnobModule } from 'primeng/knob';
 import { PasswordModule } from 'primeng/password';
-
+import { EditorModule } from 'primeng/editor';
+import { DividerModule } from 'primeng/divider';
+import { StepsModule } from 'primeng/steps';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { ToastModule } from 'primeng/toast';
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -34,6 +39,13 @@ import { PasswordModule } from 'primeng/password';
     InputTextareaModule,
     CascadeSelectModule,
     PasswordModule,
+    KnobModule,
+    EditorModule,
+    DividerModule,
+    TabMenuModule,
+    StepsModule,
+    ToastModule,
+    FileUploadModule,
   ],
 })
 export class PrimeModule {}

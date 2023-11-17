@@ -14,6 +14,9 @@ import { CommonFormComponent } from './components/common-form/common-form.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountryService } from './service/country.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GridComponent } from './components/grid/grid.component';
+import { CodeEditorComponent } from './components/code-editor/code-editor.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     ErrorPageComponent,
     CommonFormComponent,
+    GridComponent,
+    CodeEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     PrimeModule,
   ],
-  providers: [CountryService],
+  providers: [CountryService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
