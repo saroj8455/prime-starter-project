@@ -34,6 +34,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## …or push an existing repository from the command line
 
-git remote add origin https://github.com/saroj8455/prime-starter-project.git
-git branch -M master
-git push -u origin master
+`git remote add origin https://github.com/saroj8455/prime-starter-project.git` <br>
+`git branch -M master` <br>
+`git push -u origin master` <br>
