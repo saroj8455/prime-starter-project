@@ -68,14 +68,32 @@
         </ng-template>
         <ng-template pTemplate="header">
           <tr>
-            <th>Code</th>
-            <th>Name</th>
+            <th>Action</th>
+            <th>Title</th>
             <th>Category</th>
-            <th>Quantity</th>
+            <th>Description</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-ticket>
           <tr>
+            <td>
+              <div class="card flex gap-2">
+                <button
+                  pButton
+                  pRipple
+                  (click)="editTicket(ticket)"
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success mr-2"
+                ></button>
+                <button
+                  pButton
+                  pRipple
+                  (click)="deleteTicket(ticket)"
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-warning"
+                ></button>
+              </div>
+            </td>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.category }}</td>
             <td>
@@ -93,3 +111,56 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+  <div class="p-fluid grid m-4">
+    <div class="field col-12 md:col-6">
+      <span class="p-float-label">
+        <input
+          type="text"
+          id="inputtext"
+          pInputText
+          [(ngModel)]="ticket.title"
+        />
+        <label for="inputtext">Title</label>
+      </span>
+    </div>
+    <div class="field col-12 md:col-6">
+      <span class="p-float-label">
+        <input
+          type="text"
+          id="inputtext-left"
+          pInputText
+          [(ngModel)]="ticket.category"
+        />
+        <label for="inputtext-left">Category</label>
+      </span>
+    </div>
+  </div>
+  <div class="p-fluid grid m-4">
+    <div class="field col-12">
+      <span class="p-float-label">
+        <div class="card">
+          <p-editor
+            [(ngModel)]="ticket.description"
+            [style]="{ height: '320px' }"
+          ></p-editor>
+        </div>
+      </span>
+    </div>
+  </div>
+
+  <div class="card flex align-items-center justify-content-center gap-4">
+    <span class="p-buttonset">
+      <button
+        pButton
+        pRipple
+        (click)="updateTicket()"
+        label="Update Ticket"
+        icon="pi pi-check"
+      ></button>
+      <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
+      <button pButton pRipple label="Cancel" icon="pi pi-times"></button>
+    </span>
+  </div>
+</p-dialog>

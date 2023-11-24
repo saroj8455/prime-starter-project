@@ -1,6 +1,6 @@
 export const _IS_ARRAY = 'IS ARRAY';
 
-export const baseUrl = 'http://localhost:3002';
+export const baseUrl = 'http://localhost:3002/api/tickets';
 export interface ITicket {
   title: string;
   description: string;

@@ -23,6 +23,7 @@ import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { TableModule } from 'primeng/table';
 import { BadgeModule } from 'primeng/badge';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -50,6 +51,7 @@ import { BadgeModule } from 'primeng/badge';
     FileUploadModule,
     TableModule,
     BadgeModule,
+    DialogModule,
   ],
 })
 export class PrimeModule {}
