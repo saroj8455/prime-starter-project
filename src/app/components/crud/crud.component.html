@@ -1,0 +1,95 @@
+<div class="card flex m-6 justify-content-end">
+  <i class="pi pi-bell text-3xl" pBadge [value]="ticketCount.toString()"></i>
+</div>
+<div class="p-fluid grid m-4">
+  <div class="field col-12 md:col-6">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText [(ngModel)]="ticket.title" />
+      <label for="inputtext">Title</label>
+    </span>
+  </div>
+  <div class="field col-12 md:col-6">
+    <span class="p-float-label">
+      <input
+        type="text"
+        id="inputtext-left"
+        pInputText
+        [(ngModel)]="ticket.category"
+      />
+      <label for="inputtext-left">Category</label>
+    </span>
+  </div>
+</div>
+<div class="p-fluid grid m-4">
+  <div class="field col-12">
+    <span class="p-float-label">
+      <div class="card">
+        <p-editor
+          [(ngModel)]="ticket.description"
+          [style]="{ height: '320px' }"
+        ></p-editor>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="card flex align-items-center justify-content-center gap-4">
+  <span class="p-buttonset">
+    <button
+      pButton
+      pRipple
+      (click)="createTicket()"
+      label="Create Ticket"
+      icon="pi pi-check"
+    ></button>
+    <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
+    <button pButton pRipple label="Cancel" icon="pi pi-times"></button>
+  </span>
+</div>
+
+<div class="p-fluid grid m-4">
+  <!-- <div class="field col-12 md:col-2"></div> -->
+  <div class="field col-12">
+    <div class="card">
+      <p-table
+        [value]="ticketsArray"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
+        [tableStyle]="{ 'min-width': '50rem' }"
+      >
+        <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+            Tickets System_V1
+            <p-button icon="pi pi-refresh"></p-button>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-ticket>
+          <tr>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.category }}</td>
+            <td>
+              <div class="card" [innerHTML]="ticket.description"></div>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-between">
+            In total there are
+            {{ ticketsArray ? ticketsArray.length : 0 }} tickets.
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

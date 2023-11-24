@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GridComponent } from './components/grid/grid.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { MessageService } from 'primeng/api';
+import { CrudComponent } from './components/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MessageService } from 'primeng/api';
     CommonFormComponent,
     GridComponent,
     CodeEditorComponent,
+    CrudComponent,
   ],
   imports: [
     BrowserModule,

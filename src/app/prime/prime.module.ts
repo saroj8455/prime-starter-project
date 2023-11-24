@@ -21,6 +21,8 @@ import { StepsModule } from 'primeng/steps';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
+import { BadgeModule } from 'primeng/badge';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -46,6 +48,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     StepsModule,
     ToastModule,
     FileUploadModule,
+    TableModule,
+    BadgeModule,
   ],
 })
 export class PrimeModule {}
