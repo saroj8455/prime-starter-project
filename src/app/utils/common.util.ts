@@ -22,3 +22,20 @@ export interface ITicketResp {
   count: number;
   tickets: Ticket[];
 }
+
+export interface UpdateTicket {
+  _id: string;
+  title: string;
+  description: string;
+  category: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  image: string;
+}
+
+export interface IUploadResp {
+  message: string;
+  Id: string;
+  updateTicket: UpdateTicket;
+}

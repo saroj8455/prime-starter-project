@@ -112,7 +112,7 @@
   </div>
 </div>
 
-<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+<p-dialog header="Header" [(visible)]="visible" [style]="{ minWidth: '90dvw' }">
   <div class="p-fluid grid m-4">
     <div class="field col-12 md:col-6">
       <span class="p-float-label">
@@ -134,6 +134,60 @@
           [(ngModel)]="ticket.category"
         />
         <label for="inputtext-left">Category</label>
+      </span>
+    </div>
+  </div>
+  <div class="p-fluid grid m-4">
+    <div class="field col-12 md:col-6">
+      <h3>Upload to Local SRV</h3>
+      <span class="p-float-label">
+        <div class="card flex">
+          <p-toast></p-toast>
+          <!-- url="https://www.primefaces.org/cdn/api/upload.php" -->
+          <!-- https://jsdevblog.in/dev/welcome/captureimage -->
+          <p-fileUpload
+            name="captureImage"
+            url="http://localhost:3002/api/tickets/upload?Id=6560a756be6f8a636ce47347"
+            (onUpload)="onUpload($event)"
+            [multiple]="false"
+            accept="image/*"
+            [maxFileSize]="5000000"
+          >
+            <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">
+                  {{ file.name }} - {{ file.size }} bytes
+                </li>
+              </ul>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+      </span>
+    </div>
+    <div class="field col-12 md:col-6">
+      <h3>Upload to Remote SRV</h3>
+      <span class="p-float-label">
+        <div class="card flex">
+          <p-toast></p-toast>
+          <!-- url="https://www.primefaces.org/cdn/api/upload.php" -->
+          <!-- https://jsdevblog.in/dev/welcome/captureimage -->
+          <p-fileUpload
+            name="profile_image"
+            url="https://jsdevblog.in/dev/welcome/captureimage"
+            (onUpload)="onUpload($event)"
+            [multiple]="false"
+            accept="image/*"
+            [maxFileSize]="5000000"
+          >
+            <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">
+                  {{ file.name }} - {{ file.size }} bytes
+                </li>
+              </ul>
+            </ng-template>
+          </p-fileUpload>
+        </div>
       </span>
     </div>
   </div>
