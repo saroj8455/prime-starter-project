@@ -142,4 +142,12 @@ export class ProductsComponent implements OnInit {
     }
     return id;
   }
+  checkStock(inventoryStatus: string) {
+    if (inventoryStatus !== 'INSTOCK') return 'p-button-danger';
+    return 'p-button-success';
+  }
+  checkBadge(inventoryStatus: string) {
+    if (inventoryStatus === 'INSTOCK') return 'p-badge-success';
+    return 'p-badge-danger';
+  }
 }
