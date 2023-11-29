@@ -16,8 +16,10 @@ import { CountryService } from './service/country.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GridComponent } from './components/grid/grid.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CrudComponent } from './components/crud/crud.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductService } from './service/product.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { CrudComponent } from './components/crud/crud.component';
     GridComponent,
     CodeEditorComponent,
     CrudComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,12 @@ import { CrudComponent } from './components/crud/crud.component';
     ReactiveFormsModule,
     PrimeModule,
   ],
-  providers: [CountryService, MessageService],
+  providers: [
+    CountryService,
+    MessageService,
+    ProductService,
+    ConfirmationService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

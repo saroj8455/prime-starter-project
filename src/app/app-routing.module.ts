@@ -6,6 +6,7 @@ import { CommonFormComponent } from './components/common-form/common-form.compon
 import { GridComponent } from './components/grid/grid.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { CrudComponent } from './components/crud/crud.component';
+import { ProductsComponent } from './components/products/products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'grid', component: GridComponent },
   { path: 'editor', component: CodeEditorComponent },
   { path: 'crud', component: CrudComponent },
+  { path: 'products', component: ProductsComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 

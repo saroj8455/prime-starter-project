@@ -24,6 +24,13 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { TableModule } from 'primeng/table';
 import { BadgeModule } from 'primeng/badge';
 import { DialogModule } from 'primeng/dialog';
+import { SliderModule } from 'primeng/slider';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToolbarModule } from 'primeng/toolbar';
+import { RatingModule } from 'primeng/rating';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -52,6 +59,13 @@ import { DialogModule } from 'primeng/dialog';
     TableModule,
     BadgeModule,
     DialogModule,
+    SliderModule,
+    ContextMenuModule,
+    ProgressBarModule,
+    ToolbarModule,
+    RatingModule,
+    RadioButtonModule,
+    ConfirmDialogModule,
   ],
 })
 export class PrimeModule {}
