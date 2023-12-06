@@ -153,7 +153,9 @@ export class ProductsComponent implements OnInit {
     return 'p-badge-danger';
   }
   // Custom global filter
-  applyFilterGlobal($event: any, stringVal: any) {
+  applyFilterGlobal($event: Event, stringVal: string) {
+    console.log($event);
+
     this.dt?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }
