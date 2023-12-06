@@ -70,7 +70,7 @@
           <input
             pInputText
             type="text"
-            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            (input)="applyFilterGlobal($event, 'contains')"
             placeholder="Search..."
           />
         </span>
@@ -142,7 +142,7 @@
             [badgeClass]="checkBadge(product.inventoryStatus)"
           ></p-button>
 
-          <span
+          <!-- <span
             [ngClass]="
               'product-badge status-' +
               (product.inventoryStatus
@@ -150,8 +150,8 @@
                 : '')
             "
             >{{ product.inventoryStatus | uppercase }}</span
-          >
-          <span
+          > -->
+          <!-- <span
             [class]="
               'product-badge status-' +
               (product.inventoryStatus
@@ -159,7 +159,7 @@
                 : '')
             "
             >{{ product.inventoryStatus | uppercase }}</span
-          >
+          > -->
         </td>
         <td>
           <button

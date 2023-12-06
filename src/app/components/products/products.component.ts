@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 import { ProductService } from 'src/app/service/product.service';
 import { Product } from 'src/app/utils/common.util';
 
@@ -9,6 +10,7 @@ import { Product } from 'src/app/utils/common.util';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild('dt') dt: Table | undefined;
   productDialog!: boolean;
 
   products!: Product[];
@@ -149,5 +151,9 @@ export class ProductsComponent implements OnInit {
   checkBadge(inventoryStatus: string) {
     if (inventoryStatus === 'INSTOCK') return 'p-badge-success';
     return 'p-badge-danger';
+  }
+  // Custom global filter
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt?.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }
