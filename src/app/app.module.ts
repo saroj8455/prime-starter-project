@@ -20,6 +20,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CrudComponent } from './components/crud/crud.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductService } from './service/product.service';
+import { TicketsComponent } from './components/tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProductService } from './service/product.service';
     CodeEditorComponent,
     CrudComponent,
     ProductsComponent,
+    TicketsComponent,
   ],
   imports: [
     BrowserModule,

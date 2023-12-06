@@ -1,6 +1,7 @@
+<p>{{ tickets.length }}</p>
 <p-toast></p-toast>
 
-<div class="card px-2 py-3">
+<div class="card">
   <p-toolbar styleClass="mb-4 gap-2">
     <ng-template pTemplate="left">
       <button
@@ -40,13 +41,9 @@
       ></button>
     </ng-template>
   </p-toolbar>
-
   <p-table
     #dt
     [value]="products"
-    [resizableColumns]="true"
-    columnResizeMode="expand"
-    styleClass="p-datatable-gridlines"
     [rows]="10"
     [paginator]="true"
     [globalFilterFields]="[
@@ -55,7 +52,7 @@
       'representative.name',
       'status'
     ]"
-    [tableStyle]="{ 'min-width': '100%' }"
+    [tableStyle]="{ 'min-width': '75rem' }"
     [(selection)]="selectedProducts"
     [rowHover]="true"
     dataKey="id"
@@ -70,7 +67,7 @@
           <input
             pInputText
             type="text"
-            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            (input)="applyFilterGlobal($event, 'contains')"
             placeholder="Search..."
           />
         </span>
@@ -78,34 +75,26 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th pResizableColumn style="width: 4rem">
+        <th style="width: 4rem">
           <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
         </th>
-        <th pResizableColumn pSortableColumn="name" style="min-width: 15rem">
+        <th pSortableColumn="name" style="min-width: 15rem">
           Name <p-sortIcon field="name"></p-sortIcon>
         </th>
-        <th pResizableColumn>Image</th>
-        <th pResizableColumn pSortableColumn="price">
+        <th>Image</th>
+        <th pSortableColumn="price">
           Price <p-sortIcon field="price"></p-sortIcon>
         </th>
-        <th
-          pResizableColumn
-          pSortableColumn="category"
-          style="min-width: 10rem"
-        >
+        <th pSortableColumn="category" style="min-width: 10rem">
           Category <p-sortIcon field="category"></p-sortIcon>
         </th>
-        <th pResizableColumn pSortableColumn="rating">
+        <th pSortableColumn="rating">
           Reviews <p-sortIcon field="rating"></p-sortIcon>
         </th>
-        <th
-          pResizableColumn
-          pSortableColumn="inventoryStatus"
-          style="min-width: 10rem"
-        >
+        <th pSortableColumn="inventoryStatus" style="min-width: 10rem">
           Status <p-sortIcon field="inventoryStatus"></p-sortIcon>
         </th>
-        <th pResizableColumn></th>
+        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
@@ -135,22 +124,6 @@
           ></p-rating>
         </td>
         <td>
-          <p-button
-            [label]="product.inventoryStatus | uppercase"
-            [styleClass]="checkStock(product.inventoryStatus)"
-            [badge]="product.quantity"
-            [badgeClass]="checkBadge(product.inventoryStatus)"
-          ></p-button>
-
-          <span
-            [ngClass]="
-              'product-badge status-' +
-              (product.inventoryStatus
-                ? product.inventoryStatus.toLowerCase()
-                : '')
-            "
-            >{{ product.inventoryStatus | uppercase }}</span
-          >
           <span
             [class]="
               'product-badge status-' +
@@ -158,7 +131,7 @@
                 ? product.inventoryStatus.toLowerCase()
                 : '')
             "
-            >{{ product.inventoryStatus | uppercase }}</span
+            >{{ product.inventoryStatus }}</span
           >
         </td>
         <td>
@@ -186,7 +159,6 @@
     </ng-template>
   </p-table>
 </div>
-
 <p-dialog
   [(visible)]="productDialog"
   [style]="{ width: '450px' }"
@@ -196,10 +168,7 @@
 >
   <ng-template pTemplate="content">
     <img
-      [src]="
-        'https://www.primefaces.org/primeng-v14-lts/assets/showcase/images/demo/product/' +
-        product.image
-      "
+      [src]="'assets/showcase/images/demo/product/' + product.image"
       [alt]="product.image"
       class="product-image"
       *ngIf="product.image"

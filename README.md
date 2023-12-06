@@ -39,3 +39,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `git remote add origin https://github.com/saroj8455/prime-starter-project.git` <br>
 `git branch -M master` <br>
 `git push -u origin master` <br>
+
+## Fix error for primeng data table
+
+`https://stackoverflow.com/questions/65536598/primeng-table-filterglobal-ts2339-property-value-does-not-exist-on-type-even`
